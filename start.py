@@ -1,4 +1,4 @@
-from blogapp import app
+from ems import app
 
 if __name__ == '__main__':
     app.run(debug=True)

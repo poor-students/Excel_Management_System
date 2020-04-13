@@ -1,9 +1,9 @@
 from flask import render_template, flash, redirect, url_for, session
 from werkzeug.security import generate_password_hash, check_password_hash
-from blogapp import app, db
-from blogapp.forms import LoginForm, SignupForm, ProfileForm, PostForm
-from blogapp.models import User,Post, Profile
-from blogapp.config import Config
+from ems import app, db
+from ems.forms import *
+from ems.models import *
+from ems.config import Config
 import os
 
 @app.route('/')
