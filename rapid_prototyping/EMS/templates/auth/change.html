@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1 align="center">{% block title %}修改密码{% endblock %}</h1>
+{% endblock %}
+
+{% block nav %}
+    <nav align="right">
+        <table border="0" width="100%">
+            <td>
+                <a href="">{{g.user}}</a>
+            </td>
+            <td width="70">
+                <a href="{{url_for('auth.change')}}">修改密码</a>
+            </td>
+            <td width="40">
+                <a href="{{url_for('auth.logout')}}">注销</a>
+            </td>
+        </table>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <body>
+        <form method="POST">
+            <table border="0" align="center">
+                <tr>
+                    <td><label for="password">密码</label></td>
+                    <td><input name="password" id="password" type="password" required></td>
+                </tr>
+                <tr>
+                    <td><label for="password">确认密码</label></td>
+                    <td><input name="verify_password" id="verify_password" type="password" required></td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <input name="submit" type="submit" value="确认">
+                    </td>
+                    <td align="center">
+                        <a href="{{url_for('system.import_files')}}">
+                            <input name="back" type="button" value="返回">
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+{% endblock %}

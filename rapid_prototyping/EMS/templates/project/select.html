@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1 align="center">{% block title %}项目选择{% endblock %}</h1>
+{% endblock %}
+
+{% block nav %}
+    <nav align="right">
+        <table border="0" width="100%">
+            <td>
+                <a href="">{{g.user}}</a>
+            </td>
+            <td width="70">
+                <a href="{{url_for('auth.change')}}">修改密码</a>
+            </td>
+            <td width="40">
+                <a href="{{url_for('auth.logout')}}">注销</a>
+            </td>
+        </table>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <form method="post" align="center">
+        <table width="80%" border="0" align="center">
+            <tr>
+                <td rowspan=3>
+                    <select id="projects" name="projects" size=25 style="width:100%">
+                        <option value="1" selected>工地1</option>
+                        <option value="2">工地2</option>
+                    </select>
+                </td>
+                <td width="20%">
+                    <input name="select" type="submit" value="选择项目" style="font-size:20px"></input>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="{{url_for('project.create')}}">
+                        <input name="create" type="button" value="新建项目" style="font-size:20px">
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input name="delete" type="button" value="删除项目" style="font-size:20px">
+                </td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}

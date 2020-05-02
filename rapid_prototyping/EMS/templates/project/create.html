@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1 align="center">{% block title %}新建项目{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <form method="post" align="center">
+        <table border="0" align="center">
+            <tr>
+                <td>
+                    <label for="project_name">项目名称</label>
+                </td>
+                <td>
+                    <input name="project_name" id="project_name" required></input>
+                </td>
+            </tr>
+            <tr>
+                <td colspan=2>
+                    <input name="submit" type="submit" value="完成"></input>
+                </td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}

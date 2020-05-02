@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1 align="center">{% block title %}分表管理{% endblock %}</h1>
+{% endblock %}
+
+{% block nav %}
+    <nav align="right">
+        <table width="100%" align="right">
+            <td>
+                <table align="left">
+                    <td>
+                        <a href="{{url_for('system.import_files')}}">表格导入</a>
+                    </td>
+                    <td>
+                        <a href="{{url_for('system.export_files')}}">表格导出</a>
+                    </td>
+                    <td>
+                        <a href="{{url_for('system.users')}}">用户管理</a>
+                    </td>
+                    <td>
+                        <h3>分表管理</h3>
+                    </td>
+                    <td>
+                        <a href="{{url_for('project.close_project')}}">退出项目</a>
+                    </td>
+                </table>
+            </td>
+            <td>
+                <a href="">{{g.user}}</a>
+            </td>
+            <td width="70">
+                <a href="{{url_for('auth.change')}}">修改密码</a>
+            </td>
+            <td width="40">
+                <a href="{{url_for('auth.logout')}}">注销</a>
+            </td>
+        </table>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <table width="100%" border="1">
+        <td width="150" height="500">
+        </td>
+        <td>
+        </td>
+    </table>
+{% endblock %}

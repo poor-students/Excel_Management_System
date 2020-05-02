@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1 align="center">{% block title %}登陆{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <body>
+        <form method="POST">
+            <table border="0" align="center">
+                <tr>
+                    <td><label for="username">用户名</label></td>
+                    <td colspan=2><input name="username" id="username" required></td>
+                </tr>
+                <tr>
+                    <td><label for="password">密码</label></td>
+                    <td colspan=2><input name="password" id="password" type="password" required></td>
+                </tr>
+                <tr>
+                    <td align="center"><input name="submit" type="submit" value="登陆"></td>
+                    <td align="center">
+                        <a href="{{url_for('auth.register')}}">
+                            <input name="register" type="button" value="注册">
+                        </a>
+                    </td>
+                    <td align="center">
+                        <a href="{{url_for('auth.reset')}}">
+                            <input name="reset" type="button" value="找回密码">
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+{% endblock %}

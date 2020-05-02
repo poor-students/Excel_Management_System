@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1 align="center">{% block title %}表格导出{% endblock %}</h1>
+{% endblock %}
+
+{% block nav %}
+    <nav align="right">
+        <table width="100%" align="right">
+            <td>
+                <table align="left">
+                    <td>
+                        <a href="{{url_for('system.import_files')}}">表格导入</a>
+                    </td>
+                    <td>
+                        <h3>表格导出</h3>
+                    </td>
+                    <td>
+                        <a href="{{url_for('system.users')}}">用户管理</a>
+                    </td>
+                    <td>
+                        <a href="{{url_for('system.tables')}}">分表管理</a>
+                    </td>
+                    <td>
+                        <a href="{{url_for('project.close_project')}}">退出项目</a>
+                    </td>
+                </table>
+            </td>
+            <td>
+                <a href="">{{g.user}}</a>
+            </td>
+            <td width="70">
+                <a href="{{url_for('auth.change')}}">修改密码</a>
+            </td>
+            <td width="40">
+                <a href="{{url_for('auth.logout')}}">注销</a>
+            </td>
+        </table>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <table align="center">
+        <tr>
+            <td>
+                <label><input name="excel" type="checkbox" value="1">中标项目基本情况表</input></label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label><input name="excel" type="checkbox" value="2">成本汇总表</input></label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label><input name="excel" type="checkbox" value="3">税金</input></label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label><input name="excel" type="checkbox" value="4">分包分供成本汇总表</input></label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input name="download" type="button" value="下载" onclick="download()"></input>
+            </td>
+        </tr>
+    </table>
+    <script>
+        function download(){
+            var temp = document.createElement("form");
+            temp.action = window.location.pathname;
+            temp.method = "post";
+            temp.style.display = "none";
+
+            obj = document.getElementsByName("excel");
+            check_val = [];
+            for(k in obj){
+                if(obj[k].checked)
+                    check_val.push(obj[k].value);
+            }
+            if(check_val.length == 0)
+                return;
+
+            var text = document.createElement("textarea")
+            text.name = "excels"
+            text.value = check_val
+
+            temp.appendChild(text)
+            document.body.appendChild(temp);
+            temp.submit();
+
+            return temp;
+        }
+
+    </script>
+{% endblock %}

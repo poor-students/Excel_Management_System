@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1 align="center">{% block title %}找回密码{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <body>
+        <form method="POST">
+            <table border="0" align="center">
+                <tr>
+                    <td><label for="username">用户名</label></td>
+                    <td><input name="username" id="username" required></td>
+                </tr>
+                <tr>
+                    <td><label for="email">确认电子邮箱</label></td>
+                    <td><input name="email" id="email" required></td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <input name="submit" type="submit" value="确认">
+                    </td>
+                    <td align="center">
+                        <a href="{{url_for('auth.login')}}">
+                            <input name="back" type="button" value="返回">
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+{% endblock %}

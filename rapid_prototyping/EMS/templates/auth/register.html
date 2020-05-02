@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1 align="center">{% block title %}注册用户{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <body>
+        <form method="POST">
+            <table border="0" align="center">
+                <tr>
+                    <td><label for="username">用户名</label></td>
+                    <td><input name="username" id="username" required></td>
+                </tr>
+                <tr>
+                    <td><label for="password">密码</label></td>
+                    <td><input name="password" id="password" type="password" required></td>
+                </tr>
+                <tr>
+                    <td><label for="verify_password">确认密码</label></td>
+                    <td><input name="verify_password" id="verify_password" type="password" required></td>
+                </tr>
+                <tr>
+                    <td><label for="email">电子邮箱</label></td>
+                    <td><input name="email" id="email" required></td>
+                </tr>
+                <tr>
+                    <td><label for="true_name">真实姓名</label></td>
+                    <td><input name="true_name" id="true_name" required></td>
+                </tr>
+                <tr>
+                    <td><label for="invitation_code">邀请码</label></td>
+                    <td><input name="invitation_code" id="invitation_code" required></td>
+                </tr>
+                <tr>
+                    <td align="center" colspan=2><input name="submit" type="submit" value="注册"></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+{% endblock %}
